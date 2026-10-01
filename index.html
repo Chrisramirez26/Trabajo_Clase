@@ -1,16 +1,195 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOLA</title>
+    <title>Entornos, Lenguajes y Herramientas</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            yellow: '#ffec1c',
+                            bronze: '#c79157',
+                            orange: '#ff6f00',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom smooth scroll and background */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, rgba(255, 236, 28, 0.15) 0%, rgba(199, 145, 87, 0.15) 50%, rgba(255, 111, 0, 0.15) 100%);
+            min-height: 100vh;
+        }
+        .hero-gradient {
+            background: linear-gradient(90deg, #ffec1c 0%, #c79157 50%, #ff6f00 100%);
+        }
+    </style>
 </head>
-<body>
-    <h1>Hola, Clase!</h1>
+<body class="text-slate-800 antialiased selection:bg-amber-500 selection:text-white">
 
-    <input type="text" id="inputText" placeholder="Ingresa tu nombre">
-    <input type="text" id="inputText2" placeholder="Ingresa tu apellido">
-    
-    <button id="greetButton">Ingresar</button>
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/60 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl hero-gradient flex items-center justify-center text-white font-bold shadow-md">
+                    💻
+                </div>
+                <span class="text-lg font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">TechClass</span>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
+                <a href="#entornos" class="hover:text-amber-600 transition">Entornos</a>
+                <a href="#lenguajes" class="hover:text-amber-600 transition">Lenguajes</a>
+                <a href="#herramientas" class="hover:text-amber-600 transition">Herramientas</a>
+                <a href="#multimedia" class="hover:text-amber-600 transition">Multimedia</a>
+            </nav>
+            <div>
+                <a href="#saludo" class="px-4 py-2 text-sm font-semibold text-white hero-gradient rounded-full shadow-md hover:opacity-95 transition transform hover:scale-105">¡Saludar!</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+        
+        <!-- Hero Section -->
+        <section class="text-center space-y-6 max-w-3xl mx-auto py-8">
+            <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-amber-100 text-amber-800 border border-amber-200">
+                Aprende Programación desde Cero
+            </span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900">
+                ¡Hola, <span class="bg-gradient-to-r from-amber-500 to-orange-600 bg-clip-text text-transparent">Clase!</span>
+            </h1>
+            <p class="text-lg text-slate-600">
+                Explora los pilares del desarrollo de software: entornos optimizados, lenguajes versátiles y herramientas indispensables.
+            </p>
+
+            <!-- Interactive Greeting Card -->
+            <div id="saludo" class="bg-white p-6 sm:p-8 rounded-3xl shadow-xl border border-slate-100 max-w-xl mx-auto transform transition hover:shadow-2xl">
+                <h3 class="text-xl font-bold text-slate-800 mb-4">Personaliza tu bienvenida</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                    <input type="text" id="inputText" placeholder="Ingresa tu nombre" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm transition">
+                    <input type="text" id="inputText2" placeholder="Ingresa tu apellido" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm transition">
+                </div>
+                <button id="greetButton" class="w-full py-3 px-6 rounded-xl hero-gradient text-white font-bold shadow-lg hover:opacity-90 transition cursor-pointer">
+                    Ingresar / Saludar
+                </button>
+                <div id="greetingOutput" class="mt-4 text-center font-medium text-amber-700 hidden text-lg"></div>
+            </div>
+        </section>
+
+        <!-- Content Sections -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Entornos de Trabajo -->
+            <section id="entornos" class="bg-white rounded-3xl p-6 sm:p-8 shadow-lg border border-slate-100 flex flex-col justify-between hover:shadow-xl transition group">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-amber-50 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition">
+                        🏢
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-3">Entornos de Trabajo</h2>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        Espacios físicos y virtuales diseñados para maximizar la concentración, colaboración y productividad en equipo (IDE, escritorios remotos y oficinas ágiles).
+                    </p>
+                </div>
+                <!-- Image Container -->
+                <div class="rounded-2xl overflow-hidden shadow-md bg-slate-100 aspect-video relative">
+                    <img src="https://placehold.co/600x400/ffec1c/333333?text=Entornos+de+Trabajo" alt="Entornos de Trabajo" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+No+Disponible'">
+                </div>
+            </section>
+
+            <!-- Lenguajes de Programación -->
+            <section id="lenguajes" class="bg-white rounded-3xl p-6 sm:p-8 shadow-lg border border-slate-100 flex flex-col justify-between hover:shadow-xl transition group">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-orange-50 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition">
+                        ⚡
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-3">Lenguajes de Programación</h2>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        El vocabulario y la sintaxis que utilizamos para dar instrucciones a las computadoras, desde Python y JavaScript hasta arquitecturas de alto rendimiento.
+                    </p>
+                </div>
+                <!-- Image Container -->
+                <div class="rounded-2xl overflow-hidden shadow-md bg-slate-100 aspect-video relative">
+                    <img src="https://placehold.co/600x400/c79157/ffffff?text=Lenguajes+de+Programacion" alt="Lenguajes de Programación" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+No+Disponible'">
+                </div>
+            </section>
+
+            <!-- Herramientas de Desarrollo -->
+            <section id="herramientas" class="bg-white rounded-3xl p-6 sm:p-8 shadow-lg border border-slate-100 flex flex-col justify-between hover:shadow-xl transition group">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-amber-100 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition">
+                        🛠️
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-3">Herramientas de Desarrollo</h2>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        Git, terminales modernas, compiladores y sistemas de integración continua que facilitan la construcción y despliegue de software robusto.
+                    </p>
+                </div>
+                <!-- Image Container -->
+                <div class="rounded-2xl overflow-hidden shadow-md bg-slate-100 aspect-video relative">
+                    <img src="https://placehold.co/600x400/ff6f00/ffffff?text=Herramientas+Dev" alt="Herramientas de Desarrollo" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+No+Disponible'">
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Multimedia Section (Video Player Space) -->
+        <section id="multimedia" class="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+            <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-orange-600/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="max-w-3xl mx-auto text-center space-y-4 mb-8">
+                <span class="px-3 py-1 bg-amber-500/20 border border-amber-500/30 text-amber-400 text-xs font-semibold rounded-full uppercase tracking-wider">Espacio Multimedia</span>
+                <h2 class="text-3xl font-bold">Video Introductorio de la Clase</h2>
+                <p class="text-slate-400 text-sm">Visualiza la presentación en video recomendada para esta sesión.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-slate-800 aspect-video bg-slate-800 relative flex items-center justify-center">
+                <!-- Responsive Embedded Video Placeholder or YouTube iframe -->
+                <iframe class="w-full h-full absolute inset-0" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Video de Clase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 mt-20 py-8 text-center text-sm text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>© 2026 TechClass • Entornos de Trabajo, Lenguajes y Herramientas.</p>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-amber-600 transition">Términos</a>
+                <a href="#" class="hover:text-amber-600 transition">Privacidad</a>
+                <a href="#" class="hover:text-amber-600 transition">Soporte</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic Script -->
+    <script>
+        document.getElementById('greetButton').addEventListener('click', function() {
+            const name = document.getElementById('inputText').value.trim();
+            const lastName = document.getElementById('inputText2').value.trim();
+            const output = document.getElementById('greetingOutput');
+
+            if (name === "" && lastName === "") {
+                output.textContent = "¡Hola, bienvenido/a a la clase!";
+            } else {
+                output.textContent = `¡Hola, ${name} ${lastName}! Qué gusto tenerte en la clase de hoy. 🚀`;
+            }
+            output.classList.remove('hidden');
+        });
+    </script>
 </body>
 </html>
